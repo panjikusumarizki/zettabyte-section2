@@ -26,6 +26,16 @@ const groups = 3;
 
 function result(students, groups) {
   // your code here
+  const result = [];
+  for (let i = 0; i < students.length; i++) {
+    students.sort((a,b) => (a.firstName - b.firstName) ? 1 : ((b.firstName > a.firstName) ? -1 : 0))
+    while (students.length > 0) {
+      const divide = students.splice(0, groups - 1)
+      result.push(divide)
+    }
+  }
+
+  return result
 }
 
 console.log(result(students, groups));
